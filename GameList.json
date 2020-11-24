@@ -11,12 +11,12 @@
         "ScriptName": "Fencing.lua",
         "GameName": "Fencing"
     },
+    "155615604": {
+    "ScriptName": "Prisionlife.lua",
+    "GameName": "Prision life"
+    },
     "70005410": {
         "ScriptName": "Blox Hunt.lua",
         "GameName": "Blox Hunt" 
-    },
-    "155615604": {
-    "ScriptName": "Prisionlife.lua",
-    "GameName": "Prisionlife"
-}
+    }
 }
