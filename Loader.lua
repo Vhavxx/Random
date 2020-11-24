@@ -15,9 +15,8 @@ local Game = GetGame()
 
 if Game then
     Supported = true
-    Script = game:HttpGet('https://raw.githubusercontent.com/XSHubScript/XSHubDev/master/Scripts/' .. Game.ScriptName)
+    Script = game:HttpGet('https://raw.githubusercontent.com/XSHubScript/XSHubDev/master/Scritps/' .. Game.ScriptName)
 end
-
 local XSHub = Instance.new("ScreenGui")
 local MainFrame = Instance.new("ImageLabel")
 local DropShadow = Instance.new("ImageLabel")

@@ -2,8 +2,22 @@ local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Aika
 
 local w = library:CreateWindow("Natural Disaster Survival") -- Creates the window
 
-local b = w:CreateFolder("Freatures") -- Creates the folder(U will put here your buttons,etc)
+local Farm = w:CreateFolder("Farm")
 
+Farm:Label("LST = Leave To Stop",{
+    TextSize = 15; -- Self Explaining
+    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+    BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+    
+}) 
+
+Farm:Button("Auto Farm(LTS)",function()
+while true do
+    wait(5)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-290, 178, 379)
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end
+end)
 
 local tp = w:CreateFolder("TP")
 
