@@ -5,10 +5,18 @@
     },
     "189707": {
         "ScriptName": "Natural Disastrer.lua",
-        "GameName": "Naturl Disastrer"
+        "GameName": "Natural Disastrer"
     },
     "1165047394": {
         "ScriptName": "Fencing.lua",
         "GameName": "Fencing"
-    }
+    },
+    "70005410": {
+        "ScriptName": "Blox Hunt.lua",
+        "GameName": "Blox Hunt" 
+    },
+    "155615604": {
+    "ScriptName": "Prisionlife.lua",
+    "GameName": "Prisionlife"
+}
 }
