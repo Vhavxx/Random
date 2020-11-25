@@ -17,6 +17,10 @@
     },
     "70005410": {
         "ScriptName": "Blox Hunt.lua",
-        "GameName": "Blox Hunt" 
+        "GameName": "Blox Hunt"
+    },
+    "537413528": {
+        "ScriptName": "Buil A Boat.lua",
+        "GameName": "Buil A Boat" 
     }
 }
