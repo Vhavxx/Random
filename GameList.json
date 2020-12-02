@@ -14,5 +14,17 @@
     "1962086868": {
         "ScriptName": "Tower OF Hell.lua",
         "GameName": "Tower of Hell"
+    },
+    "12109643": {
+        "ScriptName": "Fencing.lua",
+        "GameName": "Fencing"
+    },
+    "537413528": {
+        "ScriptName": "Buil A Boat.lua",
+        "GameName": "Buil A Boat"
+    },
+    "70005410": {
+        "ScriptName": "Blox Hunt.lua",
+        "GameName": "Blox Hunt"
     }
 }
