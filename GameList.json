@@ -26,5 +26,9 @@
     "70005410": {
         "ScriptName": "BloxHunt.lua",
         "GameName": "Blox Hunt"
+    },
+    "263761432": {
+        "ScriptName": "HorrificHousing.lua",
+        "GameName": "Horrific Housing"
     }
 }
