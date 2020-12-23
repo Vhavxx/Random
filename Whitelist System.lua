@@ -113,8 +113,8 @@ LoginBtn.MouseButton1Down:connect(function()
 			Duration = "8";
 			callback = bindableFunction;
 		})
-		loadstring(game:HttpGet("https://gist.githubusercontent.com/XSHubScript/3c08df3d72fce2c443430b605cc7d790/raw/613cca6395a94d57e0c6ff0e82fae57bbaab5cc6/Loader", true))()
-		wait(0.5)
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/XSHubScript/XSHubDev/master/Loader.lua", true))()
+		wait(0.1)
 		XSHubLogin:Destroy()
 	else
 		game.StarterGui:SetCore("SendNotification", {

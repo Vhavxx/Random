@@ -2,7 +2,7 @@ local HttpService = game:GetService('HttpService')
 local Supported = false
 local Script = nil
 
-local GameList = game:HttpGet('https://gist.githubusercontent.com/XSHubScript/3c08df3d72fce2c443430b605cc7d790/raw/aeee06dcf8c45d2b9a5798585927e3de81ddeebd/GameList')
+local GameList = game:HttpGet('https://raw.githubusercontent.com/XSHubScript/XSHubDev/master/GameList.json')
 function GetGame()
     local GameTable = HttpService:JSONDecode(GameList)
     if GameTable[tostring(game.PlaceId)] then 
@@ -15,7 +15,7 @@ local Game = GetGame()
 
 if Game then
     Supported = true
-    Script = game:HttpGet('https://gist.githubusercontent.com/XSHubScript/' .. Game.ScriptName)
+    Script = game:HttpGet('https://raw.githubusercontent.com/XSHubScript/XSHubDev/master/Scritps/' .. Game.ScriptName)
 end
 
 local XSHub = Instance.new("ScreenGui")
