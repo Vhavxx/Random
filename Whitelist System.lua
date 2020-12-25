@@ -18,7 +18,7 @@ local Try = Instance.new("TextLabel")
 
 local attempts = 5 -- Set the attempt count to 0
 local Tryme = 4 -- Cold Down
-local code = "e"
+local code = "}{~EK#4AeB!XE)SC}A:$q%2kst<35[PXTxm{xc%.X4o2@W48Ljmx;T4gr-(P*$+"
 
 --Propietaries
 
@@ -113,7 +113,7 @@ LoginBtn.MouseButton1Down:connect(function()
 			Duration = "8";
 			callback = bindableFunction;
 		})
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/XSDevHub/XSHubDev/master/Loader.lua", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Vhavxx/Random/master/Loader.lua", true))()
 		wait(0.1)
 		XSHubLogin:Destroy()
 	else
