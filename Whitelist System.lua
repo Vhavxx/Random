@@ -1,83 +1,60 @@
+local HttpService = game:GetService('HttpService')
+local Supported = false
+local Script = nil
+
+local GameList = game:HttpGet('https://raw.githubusercontent.com/Vhavxx/Random/master/GameList.json')
+function GetGame()
+	local GameTable = HttpService:JSONDecode(GameList)
+	if GameTable[tostring(game.PlaceId)] then 
+		return GameTable[tostring(game.PlaceId)]
+	else
+		return false
+	end    
+end
+
+local Game = GetGame()
+
+if Game then
+	Supported = true
+	Script = game:HttpGet('https://raw.githubusercontent.com/Vhavxx/Random/master/Scritps/' .. Game.ScriptName)
+end
+
+local code = game:HttpGet('https://pastebin.com/msmCNuQs')
+
 local XSHubLogin = Instance.new("ScreenGui")
 local LoginFrame = Instance.new("ImageLabel")
-local XSTxt = Instance.new("TextLabel")
-local XSTxt_Roundify_12px = Instance.new("ImageLabel")
-local HubTxt = Instance.new("TextLabel")
 local login = Instance.new("ImageLabel")
 local LoginBtn = Instance.new("TextButton")
 local UIGradient = Instance.new("UIGradient")
-local PlayerUsername = Instance.new("ImageLabel")
-local UIGradient_2 = Instance.new("UIGradient")
-local Playeruser = Instance.new("TextLabel")
 local Password = Instance.new("ImageLabel")
 local PasswordBox = Instance.new("TextBox")
+local UIGradient_2 = Instance.new("UIGradient")
+local HubTxt = Instance.new("TextLabel")
+local XSTxt = Instance.new("TextLabel")
+local Logo = Instance.new("ImageLabel")
+local GameName = Instance.new("TextLabel")
+local get_Key = Instance.new("ImageLabel")
+local GetKey = Instance.new("TextButton")
 local UIGradient_3 = Instance.new("UIGradient")
-local Try = Instance.new("TextLabel")
-
---1i92dnjadjqejo
 
 local attempts = 5 -- Set the attempt count to 0
-local Tryme = 4 -- Cold Down
-local code = "}{~EK#4AeB!XE)SC}A:$q%2kst<35[PXTxm{xc%.X4o2@W48Ljmx;T4gr-(P*$+"
-
---Propietaries
+local FailAtt = 4 -- Cold Down
 
 XSHubLogin.Name = "XSHubLogin"
-XSHubLogin.Parent = game.CoreGui
-XSHubLogin.ResetOnSpawn = false
+XSHubLogin.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 LoginFrame.Name = "LoginFrame"
 LoginFrame.Parent = XSHubLogin
 LoginFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LoginFrame.BackgroundTransparency = 1.000
 LoginFrame.BorderSizePixel = 0
-LoginFrame.Position = UDim2.new(0.325077415, 0, 0.239057243, 0)
-LoginFrame.Size = UDim2.new(0, 430, 0, 310)
+LoginFrame.Position = UDim2.new(0.348988086, 0, 0.323714763, 0)
+LoginFrame.Size = UDim2.new(0, 388, 0, 208)
 LoginFrame.Image = "rbxassetid://3570695787"
 LoginFrame.ImageColor3 = Color3.fromRGB(25, 25, 25)
 LoginFrame.ScaleType = Enum.ScaleType.Slice
 LoginFrame.SliceCenter = Rect.new(100, 100, 100, 100)
 LoginFrame.SliceScale = 0.120
-
-XSTxt.Name = "XSTxt"
-XSTxt.Parent = LoginFrame
-XSTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-XSTxt.BackgroundTransparency = 1.000
-XSTxt.BorderSizePixel = 0
-XSTxt.Position = UDim2.new(0.147477403, 0, 0.0703875124, 0)
-XSTxt.Size = UDim2.new(0, 201, 0, 61)
-XSTxt.Font = Enum.Font.Gotham
-XSTxt.Text = "XS"
-XSTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
-XSTxt.TextSize = 60.000
-
-XSTxt_Roundify_12px.Name = "XSTxt_Roundify_12px"
-XSTxt_Roundify_12px.Parent = XSTxt
-XSTxt_Roundify_12px.AnchorPoint = Vector2.new(0.5, 0.5)
-XSTxt_Roundify_12px.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-XSTxt_Roundify_12px.BackgroundTransparency = 1.000
-XSTxt_Roundify_12px.Position = UDim2.new(0.5, 0, 0.5, 0)
-XSTxt_Roundify_12px.Size = UDim2.new(1, 0, 1, 0)
-XSTxt_Roundify_12px.Image = "rbxassetid://3570695787"
-XSTxt_Roundify_12px.ImageTransparency = 1.000
-XSTxt_Roundify_12px.ScaleType = Enum.ScaleType.Slice
-XSTxt_Roundify_12px.SliceCenter = Rect.new(100, 100, 100, 100)
-XSTxt_Roundify_12px.SliceScale = 0.120
-
-HubTxt.Name = "HubTxt"
-HubTxt.Parent = LoginFrame
-HubTxt.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-HubTxt.BackgroundTransparency = 1.000
-HubTxt.BorderColor3 = Color3.fromRGB(15, 128, 255)
-HubTxt.BorderSizePixel = 0
-HubTxt.Position = UDim2.new(0.378114223, 0, 0.0703875124, 0)
-HubTxt.Size = UDim2.new(0, 221, 0, 61)
-HubTxt.Font = Enum.Font.Gotham
-HubTxt.Text = "Hub"
-HubTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
-HubTxt.TextScaled = true
-HubTxt.TextSize = 14.000
-HubTxt.TextWrapped = true
 
 login.Name = "login"
 login.Parent = LoginFrame
@@ -85,8 +62,9 @@ login.AnchorPoint = Vector2.new(0.5, 0.5)
 login.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 login.BackgroundTransparency = 1.000
 login.BorderColor3 = Color3.fromRGB(15, 128, 255)
-login.Position = UDim2.new(0.494001716, 0, 0.857673407, 0)
-login.Size = UDim2.new(0.648468614, 24, 0.0443790555, 24)
+login.BorderSizePixel = 0
+login.Position = UDim2.new(0.493734241, 0, 0.746098638, 0)
+login.Size = UDim2.new(0.595744789, 24, -0.00876825862, 24)
 login.Image = "rbxassetid://3570695787"
 login.ScaleType = Enum.ScaleType.Slice
 login.SliceCenter = Rect.new(100, 100, 100, 100)
@@ -98,12 +76,12 @@ LoginBtn.BackgroundColor3 = Color3.fromRGB(15, 128, 255)
 LoginBtn.BackgroundTransparency = 1.000
 LoginBtn.BorderColor3 = Color3.fromRGB(15, 128, 255)
 LoginBtn.BorderSizePixel = 0
-LoginBtn.Position = UDim2.new(0.0107546449, 0, 0.0022302866, 0)
-LoginBtn.Size = UDim2.new(0, 302, 0, 37)
+LoginBtn.Position = UDim2.new(-0.0039191246, 0, 0.045093447, 0)
+LoginBtn.Size = UDim2.new(0, 255, 0, 21)
 LoginBtn.Font = Enum.Font.GothamBold
-LoginBtn.Text = "Login"
+LoginBtn.Text = " Load Script"
 LoginBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-LoginBtn.TextSize = 30.000
+LoginBtn.TextSize = 20.000
 LoginBtn.MouseButton1Down:connect(function()
 	if PasswordBox.Text == code then
 		game.StarterGui:SetCore("SendNotification", {
@@ -113,22 +91,21 @@ LoginBtn.MouseButton1Down:connect(function()
 			Duration = "8";
 			callback = bindableFunction;
 		})
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Vhavxx/Random/master/Loader.lua", true))()
+		loadstring(Script)()
 		wait(0.1)
 		XSHubLogin:Destroy()
 	else
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "XSHub System";
-			Text = "Wrong Password \nAttemps Left:"..Tryme;
+			Text = "Wrong Password \nAttemps Left:"..FailAtt;
 			Icon = "rbxassetid://6084960224";
 			Duration = "8";
 			callback = bindableFunction;
 		})
-		Try.Text = 'Incorrect password - ' ..Tryme.. ' tries left'
-		Tryme = Tryme - 1
+		FailAtt = FailAtt - 1
 		attempts = attempts - 1 -- If they enter the wrong password, increment the attempt count
 		if attempts == 0 then -- If they have tried 5 times, kick them
-			game.Players.LocalPlayer:Kick("\nInvalid Key! Please Rejoin And Try Again.")
+			game.Players.LocalPlayer:Kick("\nInvalid Key! Please Rejoin And Try Again. \nGet Key = (https://discord.gg/5aausdPbtQ)")
 		end
 	end
 end)
@@ -136,40 +113,15 @@ end)
 UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(15, 127, 254)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(15, 127, 254))}
 UIGradient.Parent = login
 
-PlayerUsername.Name = "PlayerUsername"
-PlayerUsername.Parent = LoginFrame
-PlayerUsername.AnchorPoint = Vector2.new(0.5, 0.5)
-PlayerUsername.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-PlayerUsername.BorderColor3 = Color3.fromRGB(15, 128, 255)
-PlayerUsername.BorderSizePixel = 0
-PlayerUsername.Position = UDim2.new(0.498359472, 0, 0.388845503, 0)
-PlayerUsername.Size = UDim2.new(0.643230498, 24, 0.0422071032, 24)
-PlayerUsername.Image = "rbxassetid://3570695787"
-PlayerUsername.ImageColor3 = Color3.fromRGB(25, 25, 25)
-PlayerUsername.ScaleType = Enum.ScaleType.Slice
-PlayerUsername.SliceCenter = Rect.new(100, 100, 100, 100)
-PlayerUsername.SliceScale = 0.120
-
-UIGradient_2.Parent = PlayerUsername
-
-Playeruser.Name = "Playeruser"
-Playeruser.Parent = PlayerUsername
-Playeruser.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-Playeruser.BorderColor3 = Color3.fromRGB(15, 128, 255)
-Playeruser.Position = UDim2.new(0.00665360689, 0, 0, 0)
-Playeruser.Size = UDim2.new(0, 301, 0, 37)
-Playeruser.Font = Enum.Font.GothamBold
-Playeruser.Text = "Username"
-Playeruser.TextColor3 = Color3.fromRGB(255, 255, 255)
-Playeruser.TextSize = 30.000
-
 Password.Name = "Password"
 Password.Parent = LoginFrame
 Password.AnchorPoint = Vector2.new(0.5, 0.5)
-Password.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-Password.BorderColor3 = Color3.fromRGB(15, 128, 255)
-Password.Position = UDim2.new(0.503010631, 0, 0.588845491, 0)
-Password.Size = UDim2.new(0.643230498, 24, 0.0422071032, 24)
+Password.BackgroundColor3 = Color3.fromRGB(153, 153, 153)
+Password.BackgroundTransparency = 1.000
+Password.BorderColor3 = Color3.fromRGB(128, 128, 128)
+Password.BorderSizePixel = 0
+Password.Position = UDim2.new(0.493734151, 0, 0.467968136, 0)
+Password.Size = UDim2.new(0.595744789, 24, 0.0303723998, 24)
 Password.Image = "rbxassetid://3570695787"
 Password.ImageColor3 = Color3.fromRGB(25, 25, 25)
 Password.ScaleType = Enum.ScaleType.Slice
@@ -178,37 +130,113 @@ Password.SliceScale = 0.120
 
 PasswordBox.Name = "PasswordBox"
 PasswordBox.Parent = Password
-PasswordBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-PasswordBox.BackgroundTransparency = 1.000
-PasswordBox.BorderColor3 = Color3.fromRGB(0, 174, 255)
+PasswordBox.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+PasswordBox.BorderColor3 = Color3.fromRGB(80, 80, 80)
 PasswordBox.BorderSizePixel = 0
-PasswordBox.Position = UDim2.new(-0.0155458627, 0, -0.0122224391, 0)
-PasswordBox.Size = UDim2.new(0, 301, 0, 37)
+PasswordBox.Position = UDim2.new(0, 0, -0.841343105, 0)
+PasswordBox.Size = UDim2.new(0, 254, 0, 38)
 PasswordBox.Font = Enum.Font.GothamBold
 PasswordBox.Text = "Password"
-PasswordBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-PasswordBox.TextSize = 30.000
+PasswordBox.TextColor3 = Color3.fromRGB(249, 249, 249)
+PasswordBox.TextSize = 20.000
 PasswordBox.TextWrapped = true
 
-UIGradient_3.Parent = Password
+UIGradient_2.Parent = Password
 
-Try.Name = "Try"
-Try.Parent = XSHubLogin
-Try.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-Try.BackgroundTransparency = 1.000
-Try.BorderColor3 = Color3.fromRGB(25, 25, 25)
-Try.Position = UDim2.new(0.38092952, 0, 0.606298864, 0)
-Try.Size = UDim2.new(0, 301, 0, 28)
-Try.Font = Enum.Font.GothamBold
-Try.Text = "Attempst Left: 5"
-Try.TextColor3 = Color3.fromRGB(255, 255, 255)
-Try.TextSize = 15.000
+HubTxt.Name = "HubTxt"
+HubTxt.Parent = LoginFrame
+HubTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+HubTxt.BackgroundTransparency = 1.000
+HubTxt.BorderSizePixel = 0
+HubTxt.Position = UDim2.new(-0.0920574814, 0, -0.0586447455, 0)
+HubTxt.Size = UDim2.new(0, 201, 0, 61)
+HubTxt.Font = Enum.Font.Gotham
+HubTxt.Text = "Hub"
+HubTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+HubTxt.TextSize = 15.000
 
--- Scripts:
+XSTxt.Name = "XSTxt"
+XSTxt.Parent = HubTxt
+XSTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+XSTxt.BackgroundTransparency = 1.000
+XSTxt.BorderSizePixel = 0
+XSTxt.Position = UDim2.new(-0.123473182, 0, -0.00598096102, 0)
+XSTxt.Size = UDim2.new(0, 201, 0, 61)
+XSTxt.Font = Enum.Font.Gotham
+XSTxt.Text = "XS"
+XSTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+XSTxt.TextSize = 15.000
 
-local function CPDLR_fake_script() -- Playeruser.LocalScript 
-	local script = Instance.new('LocalScript', Playeruser)
+Logo.Name = "Logo"
+Logo.Parent = LoginFrame
+Logo.AnchorPoint = Vector2.new(0.5, 0.5)
+Logo.BackgroundColor3 = Color3.fromRGB(153, 153, 153)
+Logo.BackgroundTransparency = 1.000
+Logo.BorderSizePixel = 0
+Logo.Position = UDim2.new(0.0439330563, 0, 0.0972152278, 0)
+Logo.Size = UDim2.new(0.0838582665, 24, 0.0669674426, 24)
+Logo.Image = "rbxassetid://6061268141"
+Logo.ScaleType = Enum.ScaleType.Slice
+Logo.SliceCenter = Rect.new(100, 100, 100, 100)
+Logo.SliceScale = 0.120
 
-	script.Parent.Text = game.Players.LocalPlayer.Name
+GameName.Name = "GameName"
+GameName.Parent = LoginFrame
+GameName.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+GameName.BackgroundTransparency = 1.000
+GameName.BorderColor3 = Color3.fromRGB(25, 25, 25)
+GameName.Position = UDim2.new(0.139053747, 0, 0.509535797, 0)
+GameName.Size = UDim2.new(0, 301, 0, 28)
+GameName.Font = Enum.Font.GothamBold
+GameName.Text = "Game Detected: Loading..."
+GameName.TextColor3 = Color3.fromRGB(255, 255, 255)
+GameName.TextSize = 15.000
+
+if Game then 
+	GameName.Text = "Game Detected: " .. Game.GameName
+	LoginBtn.Text = "Load Script"
+else
+	GameName.Text = "No Game Deteced..."
+	LoginBtn.Text = "Destroy UI"
+	LoginBtn.MouseButton1Down:Connect(function()
+		wait(1)
+		XSHubLogin:Destroy()
+	end)
+	return
 end
-coroutine.wrap(CPDLR_fake_script)()
+
+get_Key.Name = "get_Key"
+get_Key.Parent = LoginFrame
+get_Key.AnchorPoint = Vector2.new(0.5, 0.5)
+get_Key.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+get_Key.BackgroundTransparency = 1.000
+get_Key.BorderColor3 = Color3.fromRGB(15, 128, 255)
+get_Key.BorderSizePixel = 0
+get_Key.Position = UDim2.new(0.488579512, 0, 0.904752553, 0)
+get_Key.Size = UDim2.new(0.47718811, 24, -0.00876825582, 24)
+get_Key.Image = "rbxassetid://3570695787"
+get_Key.ScaleType = Enum.ScaleType.Slice
+get_Key.SliceCenter = Rect.new(100, 100, 100, 100)
+get_Key.SliceScale = 0.120
+
+GetKey.Name = "GetKey"
+GetKey.Parent = get_Key
+GetKey.BackgroundColor3 = Color3.fromRGB(15, 128, 255)
+GetKey.BackgroundTransparency = 1.000
+GetKey.BorderColor3 = Color3.fromRGB(15, 128, 255)
+GetKey.BorderSizePixel = 0
+GetKey.Position = UDim2.new(-0.00478113443, 0, 0, 0)
+GetKey.Size = UDim2.new(0, 210, 0, 22)
+GetKey.Font = Enum.Font.GothamBold
+GetKey.Text = "Get Key"
+GetKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+GetKey.TextSize = 20.000
+GetKey.MouseButton1Down:Connect(function()
+	setclipboard("https://discord.gg/5aausdPbtQ")
+	GetKey.Text = "Copied!"
+	wait(0.5)
+	GetKey.Text = "Get Key"
+end)
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(15, 127, 254)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(15, 127, 254))}
+UIGradient_3.Parent = get_Key
