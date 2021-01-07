@@ -19,7 +19,7 @@ if Game then
 	Script = game:HttpGet('https://raw.githubusercontent.com/Vhavxx/Random/master/Scritps/' .. Game.ScriptName)
 end
 
-local code = game:HttpGet('https://pastebin.com/msmCNuQs')
+local code = ("XSHub_1.7Update!.zyxwtf719238")
 
 local XSHubLogin = Instance.new("ScreenGui")
 local LoginFrame = Instance.new("ImageLabel")
