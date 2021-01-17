@@ -27,12 +27,12 @@
         "ScriptName": "BuilABoat.lua",
         "GameName": "Buil A Boat"
     },
-    "70005410": {
-        "ScriptName": "BloxHunt.lua",
-        "GameName": "Blox Hunt"
-    },
     "263761432": {
         "ScriptName": "HorrificHousing.lua",
         "GameName": "Horrific Housing"
+    },
+    "4738545896": {
+        "ScriptName": "SHOOTOUT.lua",
+        "GameName": "SHOOT OUT"
     }
 }
