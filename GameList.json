@@ -1,11 +1,31 @@
 {
-    "155615604": {
-        "ScriptName": "PrisionLife.lua",
-        "GameName": "Prision Life"
+    "70005410": {
+        "ScriptName": "BloxHunt.lua",
+        "GameName": "Blox Hunt"
+    },
+    "537413528": {
+        "ScriptName": "BuilABoat.lua",
+        "GameName": "Buil A Boat"
+    },
+    "12109643": {
+        "ScriptName": "Fencing.lua",
+        "GameName": "Fencing"
+    },
+    "263761432": {
+        "ScriptName": "HorrificHousing.lua",
+        "GameName": "Horrific Housing"
+    },
+    "142823291": {
+        "ScriptName": "MuderMystery.lua",
+        "GameName": "MuderMystery"
     },
     "189707": {
         "ScriptName": "NaturalDisastrer.lua",
         "GameName": "Natural Disastrer"
+    },
+    "155615604": {
+        "ScriptName": "PrisionLife.lua",
+        "GameName": "Prision Life"
     },
     "443406476": {
         "ScriptName": "ProjectLazarus.lua",
@@ -18,25 +38,5 @@
     "3582763398": {
         "ScriptName": "TowerOFHell.lua",
         "GameName": "Tower Of Hell Pro"
-    },
-    "12109643": {
-        "ScriptName": "Fencing.lua",
-        "GameName": "Fencing"
-    },
-    "537413528": {
-        "ScriptName": "BuilABoat.lua",
-        "GameName": "Buil A Boat"
-    },
-    "263761432": {
-        "ScriptName": "HorrificHousing.lua",
-        "GameName": "Horrific Housing"
-    },
-    "70005410": {
-        "ScriptName": "BloxHunt.lua",
-        "GameName": "Blox Hunt"
-    },
-    "4738545896": {
-        "ScriptName": "SHOOTOUT.lua",
-        "GameName": "SHOOT OUT"
     }
 }
