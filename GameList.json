@@ -11,6 +11,10 @@
         "ScriptName": "Fencing.lua",
         "GameName": "Fencing"
     },
+    "893973440": {
+        "ScriptName": "FleetheFacility.lua",
+        "GameName": "Flee the Facility"
+    },
     "263761432": {
         "ScriptName": "HorrificHousing.lua",
         "GameName": "Horrific Housing"
