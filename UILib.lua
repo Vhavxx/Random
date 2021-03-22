@@ -1,3 +1,10 @@
+do
+	local ui = game:GetService("CoreGui"):FindFirstChild("FluxLib")
+	if ui then
+		ui:Destroy()
+	end
+end
+
 local Flux = {RainbowColorValue = 0, HueSelectionPosition = 0}
 _G.PresetColor = Color3.fromRGB(66, 134, 255)
 local UserInputService = game:GetService("UserInputService")
@@ -203,11 +210,11 @@ function Flux:Window(text, bottom,mainclr)
 					uitoggled = false
 				end
 			end
-
-    function Flux:Destroy()
-        game.CoreGui.FluxLib:Destroy()
-        end
 	
+			function Flux:Destroy()
+				game.CoreGui.FluxLib:Destroy()
+				end
+				
 	function Flux:AddNotification(desc,buttontitle)
 		for i, v in next, MainFrame:GetChildren() do
 			if v.Name == "NotificationBase" then
@@ -2401,7 +2408,7 @@ function Flux:Window(text, bottom,mainclr)
 
 			Line.Name = "Line"
 			Line.Parent = Container
-			Line.BackgroundColor3 = color
+			Line.BackgroundColor3 = _G.PresetColor
 			Line.ClipsDescendants = true
 			Line.Position = UDim2.new(0, 0, 0.70091325, 0)
 			Line.Size = UDim2.new(0, 457, 0, 4)
@@ -2919,6 +2926,8 @@ function Flux:Window(text, bottom,mainclr)
 		v.BackgroundColor3 = _G.PresetColor
 	elseif v.Name == "SlideCircle" and v.Parent.Name == "SlideFrame" then
 		v.ImageColor3 = _G.PresetColor
+    elseif v.Name == "Line" then
+    v.BackgroundColor3 = _G.PresetColor
 	end
 end
 	end
